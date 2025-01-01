@@ -10,6 +10,19 @@ You could theoretically upload the Google Spreadsheet as a lookup table and use 
 
 ```
 #event_simpleName=InstalledBrowserExtension
+| regex(field=BrowserExtensionVersion, regex="(?<MajorVersion>[0-9]+)\\.(?<MinorVersion>[0-9]+)(\\.(?<PatchVersion>[0-9]+))?", strict=true)
+| case {
+        BrowserName = "0" | BrowserName := "UNKNOWN" ;
+        BrowserName = "1" | BrowserName := "FIREFOX" ;
+        BrowserName = "2" | BrowserName := "SAFARI" ;
+        BrowserName = "3" | BrowserName := "CHROME" ;
+        BrowserName = "4" | BrowserName := "EDGE" ;
+        BrowserName = "5" | BrowserName := "EDGE_CHROMIUM" ;
+        BrowserName = "6" | BrowserName := "INTERNET_EXPLORER" ;
+        BrowserName = "7" | BrowserName := "EDGE_LEGACY" ;
+        BrowserName = "8" | BrowserName := "IE_TYPED_URL" ;
+        BrowserName = "9" | BrowserName := "FIREFOX_APP" ;
+        * }
 | case {
 BrowserExtensionId="nnpnnpemnckcfdebeekibpiijlicmpom"
 | BrowserExtensionVersion=2.0.1
@@ -95,9 +108,20 @@ BrowserExtensionId="epdjhgbipjpbbhoccdeipghoihibnfja"
 BrowserExtensionId="cplhlgabfijoiabgkigdafklbhhdkahj"
 | BrowserExtensionVersion=1.0.161
 | Compromised := "true";
+BrowserExtensionId="lbneaaedflankmgmfbmaplggbmjjmbae"
+| test(MajorVersion<=1)
+| test(MinorVersion<=3)
+| test(PatchVersion<=8)
+| Compromised := "true";
+BrowserExtensionId="eaijffijbobmnonfhilihbejadplhddo"
+| BrowserExtensionVersion=2.4
+| Compromised := "true";
+BrowserExtensionId="hmiaoahjllhfgebflooeeefeiafpkfde"
+| BrowserExtensionVersion=1.0.0
+| Compromised := "true";
 *
 | Compromised := "false";
 }
 | Compromised = "true"
-| groupBy([BrowserExtensionId], function=collect(fields=[aid, BrowserExtensionName, Compromised]))
+| groupBy([BrowserExtensionId], function=collect(fields=[aid, BrowserExtensionName, BrowserName, BrowserExtensionPath, Compromised]))
 ```
