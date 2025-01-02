@@ -1,8 +1,8 @@
 # Define the path to the Chrome extensions folder for the found user
 $chromeExtensionsPath = "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Extensions"
-# Define the path to the Chrome extensions folder for the found user
+# Define the path to the Edge extensions folder for the found user
 $edgeExtensionsPath = "$env:LOCALAPPDATA\Microsoft\Edge\User Data\Default\Extensions"
-# Define the path to the Chrome extensions folder for the found user
+# Define the path to the Brave extensions folder for the found user
 $braveExtensionsPath = "$env:LOCALAPPDATA\BraveSoftware\Brave-Browser\User Data\Default\Extensions"
 # List of extension IDs to remove
 $extensionsToRemove = @(
