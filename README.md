@@ -6,6 +6,7 @@ This repository provides a comprehensive collection of detection rules and threa
 - https://www.vulnu.com/p/breaking-cyberhaven-chrome-extension-compromised
 - https://secureannex.com/blog/cyberhaven-extension-compromise/
 - The developers of Cyberheaven's Chrome extension, one of the heavily affected companies, have released an incident report : https://www.cyberhaven.com/engineering-blog/cyberhavens-preliminary-analysis-of-the-recent-malicious-chrome-extension
+https://www.extensiontotal.com/cyberhaven-incident-live
 
 ## Purpose of the repo 
 - Provide detection rules (YARA and Sigma)
@@ -20,29 +21,83 @@ This repository provides a comprehensive collection of detection rules and threa
 ## Indicators of Compromise (IoCs) - Chrome Extension Stealer Campaign December  2024
 ### Domains
 - cyberhavenext[.]pro
-- linewizeconnect[.]com
-- moonsift[.]store
-- readermodeext[.]info
-- vpncity[.]live
-- wayinai[.]live
-- censortracker[.]pro
-- parrottalks[.]info
-- ext.linewizeconnect[.]com
-- bookmarkfc[.]info
-- yujaverity[.]info
-- primusext[.]pro
-- internxtvpn[.]pro
+- gptforbusiness[.]site
+- ext[.]businessforai[.]com
+- barefootcontractor[.]com
 - uvoice[.]live
+- cyberhavenext[.]pro
+- primusext[.]pro
+- ultrablock[.]pro
+- dearflip[.]pro
+- parrottalks[.]info
+- vidnozflex[.]live
+- wakelet[.]ink
+- locallyext[.]ink
+- tinamind[.]info
+- apple-ads-metric[.]com
+- aeromexi[.]co
+- gptforads[.]info
+- blockforads[.]com
+- ytbadblocker[.]com
+- searchcopilot[.]co
+- geminiaigg[.]pro
+- blockadsonyt[.]vip
+- fadblock[.]pro
+- lltvmarkets[.]com
+- savgptforchrome[.]pro
+- bardaiforchrome[.]live
+- com-freeapps[.]com
+- gpt4summary[.]ink
+- searchaiassitant[.]info
+- artseasy[.]com
+- savechatgpt[.]site
+- upwordwave[.]com
+- yescaptcha[.]pro
+- videodownloadhelper[.]pro
 - castorus[.]info
+- bookmarkfc[.]info
+- proxyswitchyomega[.]pro
+- graphqlnetwork[.]pro
+- iobit[.]pro
+- internetdownloadmanager[.]pro
+- searchgptchat[.]info
+- pieadblock[.]pro
+- gptdetector[.]live
+- chatgptextent[.]pro
+- youtubeadsblocker[.]live
+- chatgptextension[.]site
+- remiwantnun[.]com
+- okta-onsolve[.]com
+- capitalizerutc[.]com
+- extensionpolicyprivacy[.]com
+- policyextension[.]info
+- extensionpolicy[.]net
+- checkpolicy[.]site
+- linewizeconnect[.]com
+- extensionbuysell[.]com
+- adskiper[.]net
+- aiforgemini[.]com
 - sclpfybn[.]com
+- tnagofsg[.]com
+- kra18[.]com
 
 ### IP Addresses
 
-- 149.28.124[.]84
-- 45.76.225[.]148
-- 148[.]72[.]164[.]10
-- 148[.]72[.]164[.]11
-- 148[.]72[.]173[.]24
+- 149[.]28[.]124[.]84
+- 45[.]76[.]225[.]148
+- 136[.]244[.]115[.]219
+- 149[.]248[.]44[.]88
+- 108[.]61[.]23[.]192
+- 80[.]240[.]21[.]36
+- 45[.]32[.]69[.]11
+- 155[.]138[.]253[.]165
+- 45[.]77[.]5[.]196
+- 144[.]202[.]123[.]86
+- 74[.]220[.]199[.]9
+- 45[.]32[.]231[.]212
+- 149[.]28[.]117[.]236
+- 137[.]220[.]48[.]214
+- 149[.]248[.]2[.]160
 
 ### File Hashes (SHA256)
 
