@@ -6,7 +6,7 @@ This repository provides a comprehensive collection of detection rules and threa
 - https://www.vulnu.com/p/breaking-cyberhaven-chrome-extension-compromised
 - https://secureannex.com/blog/cyberhaven-extension-compromise/
 - The developers of Cyberheaven's Chrome extension, one of the heavily affected companies, have released an incident report : https://www.cyberhaven.com/engineering-blog/cyberhavens-preliminary-analysis-of-the-recent-malicious-chrome-extension
-https://www.extensiontotal.com/cyberhaven-incident-live
+- https://www.extensiontotal.com/cyberhaven-incident-live
 
 ## Purpose of the repo 
 - Provide detection rules (YARA and Sigma)
