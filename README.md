@@ -15,6 +15,10 @@ This repository provides a comprehensive collection of detection rules and threa
 - Enable proactive threat hunting
 - Support incident response activities
 
+## Attack Anatomy
+![image](https://github.com/user-attachments/assets/58073a69-ce93-47cc-b2b9-40f69e4eda0d)
+
+
 ## TTPs 
 ![image](https://github.com/user-attachments/assets/8454952a-a50e-4daf-9aa7-ec7b5d98901a)
 
