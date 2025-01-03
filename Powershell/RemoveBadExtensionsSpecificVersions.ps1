@@ -1,5 +1,7 @@
 # Define the path to the Chrome extensions folder for the found user
 $chromeExtensionsPath = "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Extensions"
+# Define the path to the Chromium extensions folder for the found user
+$chromiumExtensionsPath = "$env:LOCALAPPDATA\Chromium\User Data\Default\Extensions"
 # Define the path to the Chrome extensions folder for the found user
 $edgeExtensionsPath = "$env:LOCALAPPDATA\Microsoft\Edge\User Data\Default\Extensions"
 # Define the path to the Chrome extensions folder for the found user
@@ -65,6 +67,10 @@ function Remove-Extension {
 if (Test-Path $chromeExtensionsPath) {
     Write-Host "Delete extensions for chrome"
     Remove-Extension -path $chromeExtensionsPath
+}
+if (Test-Path $chromiumExtensionsPath) {
+    Write-Host "Delete extensions for chromium"
+    Remove-Extension -path $chromiumExtensionsPath
 }
 if (Test-Path $edgeExtensionsPath) {
     Write-Host "Delete extensions for edge"

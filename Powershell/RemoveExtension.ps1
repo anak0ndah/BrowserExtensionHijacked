@@ -1,31 +1,81 @@
-$extensionID = “YOUR_EXTENSION_ID” # Replace with the actual extension ID
+# Define the path to the Chrome extensions folder for the found user
+$chromeExtensionsPath = "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Extensions"
+# Define the path to the Chromium extensions folder for the found user
+$chromiumExtensionsPath = "$env:LOCALAPPDATA\Chromium\User Data\Default\Extensions"
+# Define the path to the Edge extensions folder for the found user
+$edgeExtensionsPath = "$env:LOCALAPPDATA\Microsoft\Edge\User Data\Default\Extensions"
+# Define the path to the Brave extensions folder for the found user
+$braveExtensionsPath = "$env:LOCALAPPDATA\BraveSoftware\Brave-Browser\User Data\Default\Extensions"
+# List of extension IDs to remove
+$extensionsToRemove = @(
+    "bibjgkidgpfbblifamdlkdlhgihmfohh",
+    "pkgciiiancapdlpcbppfkmeaieppikkk",
+    "epdjhgbipjpbbhoccdeipghoihibnfja",
+    "bbdnohkpnbkdkmnkddobeafboooinpla",
+    "befflofjcniongenjmbkgkoljhgliihe",
+    "cedgndijpacnfbdggppddacngjfdkaca",
+    "nnpnnpemnckcfdebeekibpiijlicmpom",
+    "dpggmcodlahmljkhlmpgpdcffdaoccni",
+    "cplhlgabfijoiabgkigdafklbhhdkahj",
+    "egmennebgadmncfjafcemlecimkepcle",
+    "acmfnomgphggonodopogfbmkneepfgnh",
+    "mnhffkhmpnefgklngfmlndmkimimbphc",
+    "oaikpkmjciadfpddlpjjdapglcihgdle",
+    "fbmlcbhdmilaggedifpihjgkkmdgeljh",
+    "kkodiihpgodmdankclfibbiphjkfdenh",
+    "oeiomhmbaapihbilkfkhmlajkeegnjhe",
+    "jiofmdifioeejeilfkpegipdjiopiekl",
+    "hihblcmlaaademjlakdpicchbjnnnkbo",
+    "ndlbedplllcgconngcnfmkadhokfaaln",
+    "igbodamhgjohafcenbcljfegbipdfjpk",
+    "bgejafhieobnfpjlpcjjggoboebonfcg",
+    "llimhhconnjiflfimocjggfjdlmlhblm",
+    "hodiladlefdpcbemnbbcpclbmknkiaem",
+    "epikoohpebngmakjinphfiagogjcnddm",
+    "pajkjnmeojmbapicmbpliphjmcekeaac",
+    "ogbhbgkiojdollpjbhbamafmedkeockb",
+    "eanofdhdfbcalhflpbdipkjjkoimeeod",
+    "ekpkdmohpdnebfedjjfklhpefgpgaaji",
+    "miglaibdlgminlepgeifekifakochlka",
+    "mbindhfolmpijhodmgkloeeppmkhpmhc",
+    "eaijffijbobmnonfhilihbejadplhddo",
+    "lbneaaedflankmgmfbmaplggbmjjmbae",
+    "hmiaoahjllhfgebflooeeefeiafpkfde",
+    "pdkmmfdfggfpibdjbbghggcllhhainjo",
+    "emedckhdnioeieppmeojgegjfkhdlaeo",
+    "didhgeamncokiaegffipckhhcpnmlcbl"
+    )
 
-$userProfile = $env:USERPROFILE
-
-$chromeExtensionsPath = “$userProfile\AppData\Local\Google\Chrome\User Data\Default\Extensions”
-$edgeExtensionsPath = “$userProfile\AppData\Local\Microsoft\Edge\User Data\Default\Extensions”
 
 function Remove-Extension {
-param (
-    [string]$browser,
-    [string]$path
-)
-if (Test-Path -Path $path) {
-    Remove-Item -Path $path -Recurse -Force
-    Write-Host “$browser extension with ID ‘$extensionID’ has been removed successfully.”
-} else {
-    Write-Host “$browser extension with ID ‘$extensionID’ not found.”
-}
+    param (
+        [string]$path
+    )
+    # Remove the extensions
+    foreach ($extensionId in $extensionsToRemove) {
+        $extensionPath = Join-Path -Path $path -ChildPath $extensionId
+        if (Test-Path $extensionPath) {
+            Remove-Item -Path $extensionPath -Recurse -Force
+            Write-Host "Extension $extensionId removed."
+        } else {
+            Write-Host "Extension $extensionId not found."
+        }
+    }
 }
 
-$chromeExtensionPath = Join-Path -Path
-$chromeExtensionsPath -ChildPath 
-$extensionID
-Remove-Extension -browser “Chrome”-path
-$chromeExtensionPath
-
-$edgeExtensionPath = Join-Path -Path
-$edgeExtensionsPath -ChildPath $extensionID
-Remove-Extension -browser “Edge” -path
-$edgeExtensionPath
-Write-Host “Script completed.”
+if (Test-Path $chromeExtensionsPath) {
+    Write-Host "Delete extensions for chrome"
+    Remove-Extension -path $chromeExtensionsPath
+}
+if (Test-Path $chromiumExtensionsPath) {
+    Write-Host "Delete extensions for chromium"
+    Remove-Extension -path $chromiumExtensionsPath
+}
+if (Test-Path $edgeExtensionsPath) {
+    Write-Host "Delete extensions for edge"
+    Remove-Extension -path $edgeExtensionsPath
+}
+if (Test-Path $braveExtensionsPath) {
+    Write-Host "Delete extensions for brave"
+    Remove-Extension -path $braveExtensionsPath
+}
